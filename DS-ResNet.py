@@ -5,7 +5,7 @@ import torch.nn as nn
 # 繼承torch.nn.Module
 # super意思為子類繼承父類所有的屬性和方法
 # 若沒用使用super 只有繼承到父類的方法，沒有繼承到屬性，故無法使用父類的屬性
-class BottleneckBottleneckBlock(CNNBottleneckBlockBase):
+class BottleneckBlock(CNNBottleneckBlockBase):
     # __init__(self)內是"屬性(Attribute)"
     # 其他def的function為"方法(method)"
 
@@ -133,7 +133,7 @@ class BottleneckBottleneckBlock(CNNBottleneckBlockBase):
         return out
         
 class ResNet(nn.Module): # [3, 4, 6, 3]
-    def __init__(self, BottleneckBottleneckBlock, layers, image_channels, num_classes):
+    def __init__(self, BottleneckBlock, layers, image_channels, num_classes):
         super(ResNet, self).__init__()
         self.in_channels = 64
         self.conv1 = nn.Conv2d(image_channels, 64, kernel_size=7, stride=2, padding=3)
